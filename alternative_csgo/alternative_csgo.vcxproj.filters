@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="source\alternative.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cvars\cvars.cpp">
+      <Filter>source\cvars</Filter>
+    </ClCompile>
+    <ClCompile Include="source\features\features.cpp">
+      <Filter>source\features</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gui\gui.cpp">
+      <Filter>source\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\module_find\module_find.cpp">
+      <Filter>source\module_find</Filter>
+    </ClCompile>
+    <ClCompile Include="source\process_find\process_find.cpp">
+      <Filter>source\process_find</Filter>
+    </ClCompile>
+    <ClCompile Include="source\settings\settings.cpp">
+      <Filter>source\settings</Filter>
+    </ClCompile>
+    <ClCompile Include="source\utils\utils.cpp">
+      <Filter>source\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\game\local\local.cpp">
+      <Filter>source\game\local</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_dx9.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_win32.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\offsets\offsets.cpp">
+      <Filter>source\offsets</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\game\players\players.cpp" />
+    <ClCompile Include="source\game\world\world.cpp">
+      <Filter>source\game\world</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{c4e4b1f4-3380-441e-8dad-a98e75540337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\cvars">
+      <UniqueIdentifier>{9a214c53-7357-4e91-b2c7-574fac49151d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\features">
+      <UniqueIdentifier>{02beef97-4aad-492d-9629-e692af86ef29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\game">
+      <UniqueIdentifier>{5603979d-cc74-4b67-a4a1-da702ae1156d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\gui">
+      <UniqueIdentifier>{ba534d2f-7284-42a5-a23d-dfa15579a511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\memory_manager">
+      <UniqueIdentifier>{67e30b32-7024-4c83-9a12-4571ca9e590c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\module_find">
+      <UniqueIdentifier>{fc7eb717-4d84-420e-b8e6-8ec1030a8c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\offsets">
+      <UniqueIdentifier>{45670734-786d-4daa-8a69-a4a344af391b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\process_find">
+      <UniqueIdentifier>{a76fa679-e3a1-4bbe-ad08-ecb08580f2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{073d5a90-9e48-42b1-86a2-e7c045dbf3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\settings">
+      <UniqueIdentifier>{a492f787-6979-4bed-8403-c107124e4884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\utils">
+      <UniqueIdentifier>{b3701522-112d-4e81-b907-2eb6dddc62df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\game\local">
+      <UniqueIdentifier>{94b98375-3a2c-4383-8bda-22ebf4cd481b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\math">
+      <UniqueIdentifier>{4e89bfdb-ddf4-4650-a7c9-371a1963a48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{e714e4fb-f68f-4524-a0ec-6022f274ebd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\game\world">
+      <UniqueIdentifier>{f6a38b91-bbae-48fe-ad63-93b1cd7bc1ab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\alternative.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\defines.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\wndproc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\cvars\cvars.h">
+      <Filter>source\cvars</Filter>
+    </ClInclude>
+    <ClInclude Include="source\features\features.h">
+      <Filter>source\features</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gui\gui.h">
+      <Filter>source\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="source\memory_manager\memory_manager.h">
+      <Filter>source\memory_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\module_find\module_find.h">
+      <Filter>source\module_find</Filter>
+    </ClInclude>
+    <ClInclude Include="source\offsets\offsets.h">
+      <Filter>source\offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="source\process_find\process_find.h">
+      <Filter>source\process_find</Filter>
+    </ClInclude>
+    <ClInclude Include="resource\resource.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="source\settings\settings.h">
+      <Filter>source\settings</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utils\utils.h">
+      <Filter>source\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\game\local\local.h">
+      <Filter>source\game\local</Filter>
+    </ClInclude>
+    <ClInclude Include="source\math\math.h">
+      <Filter>source\math</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_dx9.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_win32.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_rect_pack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\stb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="source\game\world\world.h">
+      <Filter>source\game\world</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\alternative_csgo.aps">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource\alternative_csgo.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\Icon.ico">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
