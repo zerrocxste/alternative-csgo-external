@@ -39,7 +39,7 @@ void cLocal::Update(DWORD clientAddress, DWORD engineAddres)
 	this->vEye.y = this->vViewOfs.y + this->vOrigin.y;
 	this->vEye.z = this->vViewOfs.z + this->vOrigin.z;
 
-	this->vPunchAngle = MemoryManager::Read<QAngle>((this->dwLocalPlayer + g_Offsets.m_aimPunchAngle), this->vPunchAngle);
+	this->vPunchAngle = MemoryManager::Read<Vector>((this->dwLocalPlayer + g_Offsets.m_aimPunchAngle), this->vPunchAngle);
 
 	this->iCurWeapon = MemoryManager::Read<int>((this->dwLocalPlayer + g_Offsets.m_hActiveWeapon), this->iCurWeapon);
 	this->iCurWeapon &= 0xFFF;
@@ -52,7 +52,7 @@ void cLocal::Update(DWORD clientAddress, DWORD engineAddres)
 
 	this->dwLocalPlayerClientState = MemoryManager::Read<DWORD>((this->dwClientState + g_Offsets.dwClientState_GetLocalPlayer), this->dwLocalPlayerClientState);
 
-	this->vViewAngle = MemoryManager::Read<QAngle>((this->dwClientState + g_Offsets.dwClientState_ViewAngles), this->vViewAngle);
+	this->QViewAngle = MemoryManager::Read<QAngle>((this->dwClientState + g_Offsets.dwClientState_ViewAngles), this->QViewAngle);
 
 	if (this->iWeaponIndex == 262148 || this->iWeaponIndex == 262205 || this->iWeaponIndex == 262176 || this->iWeaponIndex == 262146 || this->iWeaponIndex == 262180 
 		|| this->iWeaponIndex == 262147 || this->iWeaponIndex == 262174 || this->iWeaponIndex == 262145 || this->iWeaponIndex == 262208 || this->iWeaponIndex == 262207
