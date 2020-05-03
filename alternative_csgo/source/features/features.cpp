@@ -54,15 +54,15 @@ void cFeatures::TriggerBot(DWORD clientAddress)
 
 	if (g_Cvars.WeaponNum[g_Local.iCurSettingsWpn].TriggerbotBone != 3)
 	{
-		Vector vBonePosition;
-		for (auto &&CurBone : bone)
+		Vector vBone;
+		for (auto &&CurrentBone : bone)
 		{
-			vBonePosition.x = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurBone + 0x0C), vBonePosition.x);
-			vBonePosition.y = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurBone + 0x1C), vBonePosition.y);
-			vBonePosition.z = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurBone + 0x2C), vBonePosition.z);
+			vBone.x = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurrentBone + 0x0C), vBone.x);
+			vBone.y = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurrentBone + 0x1C), vBone.y);
+			vBone.z = MemoryManager::Read<float>((dwBoneBase + 0x30 * CurrentBone + 0x2C), vBone.z);
 		}
 
-		g_Utils.VectorAngles(vBonePosition - g_Local.vEye, QTarget);
+		g_Utils.VectorAngles(vBone - g_Local.vEye, QTarget);
 		QTarget.Normalize();
 	}
 
@@ -96,8 +96,8 @@ void cFeatures::TriggerBot(DWORD clientAddress)
 		return;
 
 	if (g_Cvars.WeaponNum[g_Local.iCurSettingsWpn].TriggerbotBone == 0 &&
-		!((g_Local.vViewAngle.x - QTarget.x) <= 0.3 && (g_Local.vViewAngle.x - QTarget.x) >= -flFov
-		&& (g_Local.vViewAngle.y - QTarget.y) <= flFov && (g_Local.vViewAngle.y - QTarget.y) >= -flFov))
+		!((g_Local.QViewAngle.x - QTarget.x) <= 0.3 && (g_Local.QViewAngle.x - QTarget.x) >= -flFov
+		&& (g_Local.QViewAngle.y - QTarget.y) <= flFov && (g_Local.QViewAngle.y - QTarget.y) >= -flFov))
 		return;
 
 	mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, NULL, NULL, NULL, NULL);
@@ -174,7 +174,7 @@ void cFeatures::RunAimbot(int bone, DWORD clientAddress)
 		g_Utils.VectorAngles(g_World.players[id].vOrigin - g_Local.vEye, QTarget);
 		QTarget.Normalize();
 
-		float flAngleDist = abs(g_Local.vViewAngle.y - QTarget.y);
+		float flAngleDist = abs(g_Local.QViewAngle.y - QTarget.y);
 
 		if (g_Utils.FovCheck(QTarget, flFOV) && flAngleDist < delta)
 		{
@@ -200,7 +200,7 @@ void cFeatures::RunAimbot(int bone, DWORD clientAddress)
 	QAimAngle.y -= g_Local.vPunchAngle.y * flRecoilCompX;
 	QAimAngle.z = 0.f;
 	
-	SmoothAimAngles(g_Local.vViewAngle, QAimAngle, QSmoothedAimAngle, flSmooth);
+	SmoothAimAngles(g_Local.QViewAngle, QAimAngle, QSmoothedAimAngle, flSmooth);
 
 	MemoryManager::Write<float>((g_Local.dwClientState + g_Offsets.dwClientState_ViewAngles), QSmoothedAimAngle.x);
 	MemoryManager::Write<float>((g_Local.dwClientState + g_Offsets.dwClientState_ViewAngles + 0x4), QSmoothedAimAngle.y);
@@ -220,26 +220,24 @@ void cFeatures::Aimbot(DWORD clientAddress)
 	else if (g_Cvars.WeaponNum[g_Local.iCurSettingsWpn].AimbotBone == 2)
 		bone.push_back(0);
 
-	if (bone.empty())
-		return;
 
 	if (GetAsyncKeyState(VK_LBUTTON))
 	{
-		for (auto&& CurBone : bone)
+		for (auto&& CurrentBone : bone)
 		{
-			RunAimbot(CurBone, clientAddress);
+			RunAimbot(CurrentBone, clientAddress);
 		}
 	}
 }
 
 /*void cFeatures::FovChanger(DWORD clientAddress)
 {
-	if (m_pCvars.CustomFov > 0 && m_pLocal.bIsScoped != 1)
+	if (g_Cvars.CustomFov > 0 && g_Local.bIsScoped != 1)
 	{
-		MemoryManager::Write<int>(ProcessFinder->GetProcessHandle(), (m_pLocal.dwLocalPlayer + g_Offsets.m_iFOV), m_pCvars.CustomFov);
+		MemoryManager::Write<int>(ProcessFinder->GetProcessHandle(), (g_Local.dwLocalPlayer + g_Offsets.m_iFOV), g_Cvars.CustomFov);
 	}
 	else
 	{
-		MemoryManager::Write<int>(ProcessFinder->GetProcessHandle(), (m_pLocal.dwLocalPlayer + g_Offsets.m_iFOV), m_pLocal.iFov);
+		MemoryManager::Write<int>(ProcessFinder->GetProcessHandle(), (g_Local.dwLocalPlayer + g_Offsets.m_iFOV), g_Local.iFov);
 	}
 }*/
