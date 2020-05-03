@@ -28,11 +28,11 @@ public:
 	int iCurSettingsWpn;
 	//int iAccountId;
 	float flVelocitySpeed;
-	QAngle vViewAngle;
+	QAngle QViewAngle;
 	Vector vViewOfs;
 	Vector vOrigin;
 	Vector vEye;
-	QAngle vPunchAngle;
+	Vector vPunchAngle;
 	Vector vVelocity;
 
 	bool IsCurWeaponKnife(void);
