@@ -35,8 +35,8 @@ void cUtils::VectorAngles(const float *forward, float *angles)
 
 bool cUtils::FovCheck(QAngle Target, float Fov)
 {
-	return ((g_Local.vViewAngle.x - Target.x) <= Fov && (g_Local.vViewAngle.x - Target.x) >= -Fov
-		&& (g_Local.vViewAngle.y - Target.y) <= Fov && (g_Local.vViewAngle.y - Target.y) >= -Fov);
+	return ((g_Local.QViewAngle.x - Target.x) <= Fov && (g_Local.QViewAngle.x - Target.x) >= -Fov
+		&& (g_Local.QViewAngle.y - Target.y) <= Fov && (g_Local.QViewAngle.y - Target.y) >= -Fov);
 }
 
 bool cUtils::bVisibilityCheck(DWORD index)
