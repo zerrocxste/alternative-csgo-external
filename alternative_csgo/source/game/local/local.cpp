@@ -54,51 +54,80 @@ void cLocal::Update(DWORD clientAddress, DWORD engineAddres)
 
 	this->QViewAngle = MemoryManager::Read<QAngle>((this->dwClientState + g_Offsets.dwClientState_ViewAngles), this->QViewAngle);
 
-	if (this->iWeaponIndex == 262148 || this->iWeaponIndex == 262205 || this->iWeaponIndex == 262176 || this->iWeaponIndex == 262146 || this->iWeaponIndex == 262180 
-		|| this->iWeaponIndex == 262147 || this->iWeaponIndex == 262174 || this->iWeaponIndex == 262145 || this->iWeaponIndex == 262208 || this->iWeaponIndex == 262207
-		|| this->iWeaponIndex == 262161 || this->iWeaponIndex == 262178 || this->iWeaponIndex == 262177 || this->iWeaponIndex == 262168 || this->iWeaponIndex == 262170
-		|| this->iWeaponIndex == 262163 || this->iWeaponIndex == 262167 || this->iWeaponIndex == 262157 || this->iWeaponIndex == 262154 || this->iWeaponIndex == 262151
-		|| this->iWeaponIndex == 262160 || this->iWeaponIndex == 262204 || this->iWeaponIndex == 262183 || this->iWeaponIndex == 262152 || this->iWeaponIndex == 262184
-		|| this->iWeaponIndex == 262153 || this->iWeaponIndex == 262155 || this->iWeaponIndex == 262182 || this->iWeaponIndex == 262179 || this->iWeaponIndex == 262169
-		|| this->iWeaponIndex == 262173 || this->iWeaponIndex == 262171 || this->iWeaponIndex == 262158 || this->iWeaponIndex == 262172)
-	{//nekototie skins net zdes izza csgo update
-		if (this->iWeaponIndex == 262151) { this->iCurSettingsWpn = WEAPON_AK47; }
-		if (this->iWeaponIndex == 262204) { this->iCurSettingsWpn = WEAPON_M4A1S; }
-		if (this->iWeaponIndex == 262160) { this->iCurSettingsWpn = WEAPON_M4A4; }
-		if (this->iWeaponIndex == 262145) { this->iCurSettingsWpn = WEAPON_DEAGLE; }
-		if (this->iWeaponIndex == 262148) { this->iCurSettingsWpn = WEAPON_GLOCK; }
-		if (this->iWeaponIndex == 262205) { this->iCurSettingsWpn = WEAPON_USPS; }
-		if (this->iWeaponIndex == 262176) { this->iCurSettingsWpn = WEAPON_P2000; }
-		if (this->iWeaponIndex == 262153) { this->iCurSettingsWpn = WEAPON_AWP; }
-		if (this->iWeaponIndex == 262184) { this->iCurSettingsWpn = WEAPON_SSG08; }
-		if (this->iWeaponIndex == 262183) { this->iCurSettingsWpn = WEAPON_SG553; }
-		if (this->iWeaponIndex == 262152) { this->iCurSettingsWpn = WEAPON_AUG; }
-		if (this->iWeaponIndex == 262154) { this->iCurSettingsWpn = WEAPON_FAMAS; }
-		if (this->iWeaponIndex == 262157) { this->iCurSettingsWpn = WEAPON_GALIL; }
-		if (this->iWeaponIndex == 262146) { this->iCurSettingsWpn = WEAPON_DUALS; }
-		if (this->iWeaponIndex == 262167) { this->iCurSettingsWpn = WEAPON_MP5SD; }
-		if (this->iWeaponIndex == 262147) { this->iCurSettingsWpn = WEAPON_FIVE7; }
-		if (this->iWeaponIndex == 262180) { this->iCurSettingsWpn = WEAPON_P250; }
-		if (this->iWeaponIndex == 262174) { this->iCurSettingsWpn = WEAPON_TEC9; }
-		if (this->iWeaponIndex == 262208) { this->iCurSettingsWpn = WEAPON_R8; }
-		if (this->iWeaponIndex == 262207) { this->iCurSettingsWpn = WEAPON_CZ75; }
-		if (this->iWeaponIndex == 262158) { this->iCurSettingsWpn = WEAPON_M249; }
-		if (this->iWeaponIndex == 262172) { this->iCurSettingsWpn = WEAPON_NEGEV; }
-		if (this->iWeaponIndex == 262155) { this->iCurSettingsWpn = WEAPON_G3SG1; }
-		if (this->iWeaponIndex == 262182) { this->iCurSettingsWpn = WEAPON_SCAR20; }
-		if (this->iWeaponIndex == 262161) { this->iCurSettingsWpn = WEAPON_MAC10; }
-		if (this->iWeaponIndex == 262163) { this->iCurSettingsWpn = WEAPON_P90; }
-		if (this->iWeaponIndex == 262168) { this->iCurSettingsWpn = WEAPON_UMP; }
-		if (this->iWeaponIndex == 262170) { this->iCurSettingsWpn = WEAPON_BIZON; }
-		if (this->iWeaponIndex == 262177) { this->iCurSettingsWpn = WEAPON_MP7; }
-		if (this->iWeaponIndex == 262178) { this->iCurSettingsWpn = WEAPON_MP9; }
-		if (this->iWeaponIndex == 262179) { this->iCurSettingsWpn = WEAPON_NOVA; }
-		if (this->iWeaponIndex == 262179) { this->iCurSettingsWpn = WEAPON_XM; }
-		if (this->iWeaponIndex == 262171) { this->iCurSettingsWpn = WEAPON_MAG7; }
-		if (this->iWeaponIndex == 262173) { this->iCurSettingsWpn = WEAPON_SAWEDOFF; }
-	}
-	else
+	switch (this->iWeaponIndex)
+	{
+	case 262151:
+		this->iCurSettingsWpn = WEAPON_AK47; break;
+	case 262204:
+		this->iCurSettingsWpn = WEAPON_M4A1S; break;
+	case 262160:
+		this->iCurSettingsWpn = WEAPON_M4A4; break;
+	case 262145:
+		this->iCurSettingsWpn = WEAPON_DEAGLE; break;
+	case 262148:
+		this->iCurSettingsWpn = WEAPON_GLOCK; break;
+	case 262205:
+		this->iCurSettingsWpn = WEAPON_USPS; break;
+	case 262176:
+		this->iCurSettingsWpn = WEAPON_P2000; break;
+	case 262153:
+		this->iCurSettingsWpn = WEAPON_AWP; break;
+	case 262184:
+		this->iCurSettingsWpn = WEAPON_SSG08; break;
+	case 262183:
+		this->iCurSettingsWpn = WEAPON_SG553; break;
+	case 262152:
+		this->iCurSettingsWpn = WEAPON_AUG; break;
+	case 262154:
+		this->iCurSettingsWpn = WEAPON_FAMAS; break;
+	case 262157:
+		this->iCurSettingsWpn = WEAPON_GALIL; break;
+	case 262146:
+		this->iCurSettingsWpn = WEAPON_DUALS; break;
+	case 262167:
+		this->iCurSettingsWpn = WEAPON_MP5SD; break;
+	case 262147:
+		this->iCurSettingsWpn = WEAPON_FIVE7; break;
+	case 262180:
+		this->iCurSettingsWpn = WEAPON_P250; break;
+	case 262174:
+		this->iCurSettingsWpn = WEAPON_TEC9; break;
+	case 262208:
+		this->iCurSettingsWpn = WEAPON_R8; break;
+	case 262207:
+		this->iCurSettingsWpn = WEAPON_CZ75; break;
+	case 262158:
+		this->iCurSettingsWpn = WEAPON_M249; break;
+	case 262172:
+		this->iCurSettingsWpn = WEAPON_NEGEV; break;
+	case 262155:
+		this->iCurSettingsWpn = WEAPON_G3SG1; break;
+	case 262182:
+		this->iCurSettingsWpn = WEAPON_SCAR20; break;
+	case 262161:
+		this->iCurSettingsWpn = WEAPON_MAC10; break;
+	case 262163:
+		this->iCurSettingsWpn = WEAPON_P90; break;
+	case 262168:
+		this->iCurSettingsWpn = WEAPON_UMP; break;
+	case 262170:
+		this->iCurSettingsWpn = WEAPON_BIZON; break;
+	case 262177:
+		this->iCurSettingsWpn = WEAPON_MP7; break;
+	case 262178:
+		this->iCurSettingsWpn = WEAPON_MP9; break;
+	case 262179:
+		this->iCurSettingsWpn = WEAPON_NOVA; break;
+	case 262169:
+		this->iCurSettingsWpn = WEAPON_XM; break;
+	case 262171:
+		this->iCurSettingsWpn = WEAPON_MAG7; break;
+	case 262173:
+		this->iCurSettingsWpn = WEAPON_SAWEDOFF; break;
+	default:
 		this->iCurSettingsWpn = (this->iWeaponIndex > 0 && this->iWeaponIndex < 80) ? this->iWeaponIndex : 45;
+		break;
+	}
 }
 
 bool cLocal::IsCurWeaponKnife(void)
