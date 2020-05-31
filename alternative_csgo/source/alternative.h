@@ -22,7 +22,7 @@ private:
 	DWORD dwExitTimers;
 public:
 	bool FindGameWindow();
-	void InitMemory();
+	void InitHack();
 	void HackLoop();
 };
 extern cCheat cheat;

@@ -80,6 +80,38 @@ void cGui::DestroyImgui()
 	ImGui::DestroyContext();
 }
 
+void cGui::Reset(LPDIRECT3DDEVICE9 g_pd3dDevice, D3DPRESENT_PARAMETERS g_d3dpp)
+{
+	ImGui_ImplDX9_InvalidateDeviceObjects();
+	HRESULT hr = g_pd3dDevice->Reset(&g_d3dpp);
+	if (hr == D3DERR_INVALIDCALL)
+		IM_ASSERT(0);
+	ImGui_ImplDX9_CreateDeviceObjects();
+}
+
+void cGui::Render(LPDIRECT3DDEVICE9 g_pd3dDevice, D3DPRESENT_PARAMETERS g_d3dpp)
+{
+	g_pd3dDevice->SetRenderState(D3DRS_ZENABLE, false);
+	g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, false);
+	g_pd3dDevice->SetRenderState(D3DRS_SCISSORTESTENABLE, false);
+
+	g_pd3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_ARGB(0, 0, 0, 0), 1.0f, 0);
+
+	if (g_pd3dDevice->BeginScene() >= 0)
+	{
+		ImGui::Render();
+		ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
+		g_pd3dDevice->EndScene();
+	}
+
+	HRESULT result = g_pd3dDevice->Present(NULL, NULL, NULL, NULL);
+
+	if (result == D3DERR_DEVICELOST && g_pd3dDevice->TestCooperativeLevel() == D3DERR_DEVICENOTRESET)
+	{
+		Reset(g_pd3dDevice, g_d3dpp);
+	}
+}
+
 void cGui::GuiLoop()
 {
 	ImGui_ImplDX9_NewFrame();

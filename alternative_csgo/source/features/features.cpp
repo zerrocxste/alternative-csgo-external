@@ -105,11 +105,8 @@ void cFeatures::TriggerBot(DWORD clientAddress)
 
 void cFeatures::Bunnyhop(DWORD clientAddress)
 {
-	if (GetAsyncKeyState(VK_SPACE))
-	{
-		auto pressed = (g_Local.iMoveFlag == 257) || (g_Local.iMoveFlag == 263) ? 5 : 4;
-		MemoryManager::Write<int>(clientAddress + g_Offsets.dwForceJump, pressed);
-	}
+	auto pressed = (g_Local.iMoveFlag == 257) || (g_Local.iMoveFlag == 263) ? 5 : 4;
+	if (GetAsyncKeyState(VK_SPACE))	MemoryManager::Write<int>(clientAddress + g_Offsets.dwForceJump, pressed);
 }
 
 inline void SmoothAimAngles(const QAngle& MyViewAngles, const QAngle& AimAngles, QAngle& OutAngles, const float& Smoothing)

@@ -4,7 +4,7 @@
 
 cCheat cheat;
 
-void cCheat::InitMemory()
+void cCheat::InitHack()
 {
 	if (g_ProcessFind.InitProcess())
 	{

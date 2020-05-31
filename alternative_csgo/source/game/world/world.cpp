@@ -7,7 +7,7 @@ cWorld g_World;
 
 void cWorld::Update(DWORD clientAddress)
 {
-	for (int id = 0; id < 32; id++)
+	for (int id = 1; id < 32; id++)
 	{
 		this->players[id].dwEntity = MemoryManager::Read<DWORD>((clientAddress + g_Offsets.dwEntityList + (id * 0x10)), this->players[id].dwEntity);
 		this->players[id].dwBoneBase = MemoryManager::Read<DWORD>((this->players[id].dwEntity + g_Offsets.m_dwBoneMatrix), this->players[id].dwBoneBase);

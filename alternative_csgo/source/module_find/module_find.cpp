@@ -43,30 +43,22 @@ bool cModuleFind::FindModule(const char* moduleName, MODULEENTRY32& module_base)
 
 bool cModuleFind::FindClientModule()
 {
-	if (this->FindModule("client_panorama.dll", this->modules_t.client))
-	{
-		std::cout << "client_panorama.dll found. address: " << (PVOID)(DWORD)this->modules_t.client.modBaseAddr << std::endl;
-		return true;
-	}
-	else
-	{
+	static bool ret = this->FindModule("client_panorama.dll", this->modules_t.client);
+
+	ret ? std::cout << "client_panorama.dll found. address: " << (PVOID)(DWORD)this->modules_t.client.modBaseAddr << std::endl :
 		std::cout << "client_panorama.dll not found" << std::endl;
-		return false;
-	}
+
+	return ret;
 }
 
 bool cModuleFind::FindEngineModule()
 {
-	if (this->FindModule("engine.dll", this->modules_t.engine))
-	{
-		std::cout << "engine.dll found. address: " << (PVOID)(DWORD)this->modules_t.engine.modBaseAddr << std::endl;
-		return true;
-	}
-	else
-	{
+	static bool ret = this->FindModule("engine.dll", this->modules_t.engine);
+
+	ret ? std::cout << "engine.dll found. address: " << (PVOID)(DWORD)this->modules_t.engine.modBaseAddr << std::endl :
 		std::cout << "engine.dll not found" << std::endl;
-		return false;
-	}	
+
+	return ret;
 }
 
 bool cModuleFind::InitModule()
